@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include "linked_list.h"
 
-
-// A -> B -> C -> NULL
-
-
-
 void push_node(struct Node** head_ref, int value) {
     struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
     new_node->value = value;
