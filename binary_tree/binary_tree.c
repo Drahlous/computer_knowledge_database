@@ -27,22 +27,41 @@ struct Node* push_node(struct Node* root, int value) {
     return insert_node(root, create_node(value));
 }
 
-void print_tree_dfs(const struct Node* root) {
+void print_subtrees(const struct Node* root, int prefix_count, char prefix_char) {
     if (root != NULL) {
-        printf("%d -> ", root->value);
-        print_tree_dfs(root->left);
-        print_tree_dfs(root->right);
+        ++prefix_count;
+        for (int i = 0; i < prefix_count; ++i) {
+            printf("*");
+        }
+        printf("%c ", prefix_char);
+
+        printf("%d\n", root->value);
+        print_subtrees(root->left, prefix_count, '<');
+        print_subtrees(root->right, prefix_count, '>');
     }
 }
 
-int main() {
-    printf("Testing Binary Tree Library\n\n");
-    struct Node* my_tree = NULL;
-    my_tree = push_node(my_tree, 10);
-    push_node(my_tree, 15);
-    push_node(my_tree, 5);
-    print_tree_dfs(my_tree);
+void print_plantuml_tree(const struct Node* root) {
+    printf("@startwbs\n");
+    print_subtrees(root, 0, ' ');
+    printf("@endwbs\n");
+}
 
+int main(int argc, char** argv) {
+    if (argc < 2) {
+        printf("Provide at least one integer argument\n");
+        return 1;
+    }
+
+
+    struct Node* my_tree = NULL;
+    my_tree = push_node(my_tree, atoi(argv[1]));
+
+    for(int i = 2; i < argc; ++i) {
+        push_node(my_tree, atoi(argv[i]));
+    }
+
+    print_plantuml_tree(my_tree);
 
     return 0;
 }
