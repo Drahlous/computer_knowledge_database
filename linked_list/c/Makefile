@@ -12,10 +12,10 @@ bin: $(objects)
 linked_list.o: linked_list.h
 
 .PHONY: test
-test:
+test: bin
 	./bin
 
 .PHONY: clean
 clean:
-	rm bin $(objects)
+	-@rm bin *.puml *.png $(objects) 2>/dev/null || true
 
