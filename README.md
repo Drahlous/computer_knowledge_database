@@ -1,6 +1,19 @@
 # Data Structures and Algorithms Practice
 
 
+## Common Big O Run times
+- `O(log n):` Logarithmic time, binary search
+
+- `O(n):` Linear time, simple search
+
+- `O(n * log n)`: Fast sorting algorithms
+
+- `O(n^2)`: Slow sorting algorithms, bubble sort
+
+- `O(n!)`: Factorial, traveling salesman
+
+
+
 
 ## PlantUML Diagrams
 
