@@ -18,6 +18,12 @@ test: bin
 .PHONY: puml
 puml: bin
 	./bin 10 5 15 20 21 11 7 3 6 > treeDiagram.puml
+	java -jar ~/.local/bin/plantuml.jar treeDiagram.puml
+	feh treeDiagram.png
+
+.PHONY: puml-live
+puml-live: bin
+	./bin 10 5 15 20 21 11 7 3 6 > treeDiagram.puml
 	water-uml live treeDiagram.puml
 
 .PHONY: clean
