@@ -15,12 +15,30 @@ struct Node* create_node(int value) {
 struct Node* insert_node(struct Node* root, struct Node* new_node) {
     if (root == NULL) {
         return new_node;
+    } else if (new_node->value == root->value) {
+        free(new_node);
+        return root;
     } else if (new_node->value < root->value) {
         root->left = insert_node(root->left, new_node);
     } else {
         root->right = insert_node(root->right, new_node);
     }
     return root;
+}
+
+struct Node* find_node(struct Node* root, int value_to_find) {
+    if (root == NULL) {
+        return NULL;
+
+    } else if (value_to_find == root->value) {
+        return root;
+
+    } else if (value_to_find < root->value) {
+        return find_node(root->left, value_to_find);
+
+    } else {
+        return find_node(root->right, value_to_find);
+    }
 }
 
 struct Node* push_node(struct Node* root, int value) {
@@ -52,7 +70,6 @@ int main(int argc, char** argv) {
         printf("Provide at least one integer argument\n");
         return 1;
     }
-
 
     struct Node* my_tree = NULL;
     my_tree = push_node(my_tree, atoi(argv[1]));
