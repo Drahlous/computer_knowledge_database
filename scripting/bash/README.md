@@ -39,7 +39,7 @@
     - [ ] awk
 - [ ] Filepath Globbing
 - [ ] Examples and Usecases
-    - [ ] Generating Sequences
+    - [x] Generating Sequences
 - [ ] Process Control
     - [ ] Coprocesses: coproc, async shell with two-way piping
     - [ ] xargs
