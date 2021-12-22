@@ -1,0 +1,34 @@
+# Bash Guide
+
+## TODO:
+- Pipelines & Lists: 
+    - command-first ; command-second
+    - command-first | command-second
+    - command-first || command-second
+    - command-first && command-second
+- Compound Commands: (command), { command; } 
+    - Arithmetic Expressions: ((expression))
+    - Conditional Expressions: [[ expression ]]
+    - For Loops: for name in set; do list; done
+    - Case Statements (C-Switch equivalent)
+    - If Statements: if list; then list; elif, else
+    - While, Until
+- Parameters (Arguments): `*, @, ?, !` 
+- Quoting: Single Quotes, Double Quotes, Escape Characters
+- Arrays: Indexed, Associative (Hashmaps/Dictionaries), `@, *`
+- Expansion
+    - Brace Expansion
+    - Tilde Expansion
+    - Command Substitution
+    - Arithmetic Expansion
+    - Word Splitting
+    - Path Name Expansion
+- Local Variables
+- Environment Variables
+- Output Redirection
+- PATH
+- Globbing
+- Coprocesses: coproc, async shell with two-way piping
+- Functions
+- xargs
+- GNU Parallel
