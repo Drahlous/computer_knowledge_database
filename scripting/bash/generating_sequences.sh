@@ -26,7 +26,6 @@ seq 0 2 10
 
 echo '
 If we do not want to use the seq command, we can get similar results with bash brace-expansion.
-Note however that sequences generated with this method are separated with spaces rather than newlines.
     $echo {1..5}'
 echo {1..5}
 
@@ -39,6 +38,11 @@ echo '
 echo {0..10..2}
 
 
+echo '
+Note however that sequences generated with this method are separated with spaces rather than newlines.
+If we want to get the newlines back, we can wrap the statement in a for-loop
+    $for num in {1..5}; do echo "$num"; done'
+for num in {1..5}; do echo "$num"; done
 
 echo '
 A major advantage of using bash brace-expansion is that it allows us to generate sequences from non-numerical sets
