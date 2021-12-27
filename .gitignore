@@ -7,3 +7,9 @@ bin
 target
 debug
 Cargo.lock
+
+
+# Python
+__py*
+
+

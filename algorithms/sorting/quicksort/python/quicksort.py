@@ -1,4 +1,5 @@
 #!/bin/python
+import unittest
 
 ### Complexity
 # Average Case: O(n logn)
@@ -27,12 +28,28 @@ def quicksort(arr):
         return quicksort(lower) + [pivot] + quicksort(higher)
 
 
-print(quicksort([]))
-print(quicksort([0]))
-print(quicksort([10]))
-print(quicksort([10, 15]))
-print(quicksort([15, 10]))
-print(quicksort([10, 15, 20]))
-print(quicksort([20, 15, 10]))
-print(quicksort([15, 20, 10]))
+# Unit Tests
+class QuicksortTest(unittest.TestCase):
+    def test_quicksort_empty(self):
+        self.assertEqual(quicksort([]), [])
+
+    def test_quicksort_zero(self):
+        self.assertEqual(quicksort([0]), [0])
+
+    def test_quicksort_single(self):
+        self.assertEqual(quicksort([10]), [10])
+    def test_quicksort_two_sorted(self):
+        self.assertEqual(quicksort([10, 15]), [10, 15])
+
+    def test_quicksort_two_unsorted(self):
+        self.assertEqual(quicksort([15, 10]), [10, 15])
+
+    def test_quicksort_three_sorted(self):
+        self.assertEqual(quicksort([10, 15, 20]), [10, 15, 20])
+
+    def test_quicksort_three_reversed(self):
+        self.assertEqual(quicksort([20, 15, 10]), [10, 15, 20])
+
+    def test_quicksort_three_left_shift(self):
+        self.assertEqual(quicksort([15, 20, 10]), [10, 15, 20])
 
