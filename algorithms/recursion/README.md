@@ -33,3 +33,4 @@ A `Stack` allows you to do two actions:
 
 - Functions are added on top of the `callstack`, which can get very large, take a lot of memory, and overflow
 
+- When working with `recursive array functions`, the base case is often an `empty array` or `one-element array`
