@@ -1,5 +1,7 @@
 #!/bin/python
 
+# Based on:
+# https://realpython.com/introduction-to-python-generators/
 
 
 ### Generators
