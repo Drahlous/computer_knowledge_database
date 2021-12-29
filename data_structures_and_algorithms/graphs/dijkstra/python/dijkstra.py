@@ -75,20 +75,11 @@ sample_graph["end"] = {}
 # Mark this node as processed
 def update_table(parent, graph, table):
     for key in graph[parent].keys():
-        old_cost = table[key]["cost"]
-
-        if old_cost is None:
-            print( key + " old cost: None")
-        else:
-            print( key + " old cost: " +  str(old_cost))
-
         # New Cost = (cost_to_parent) + (cost_from_parent_to_node)
         new_cost = table[parent]["cost"] + graph[parent][key]
-        print( key + " new cost: " + str(new_cost)) 
+        old_cost = table[key]["cost"]
 
-        if table[key]["cost"] is None or new_cost < table[key]["cost"]:
-
-            print( key + " updated cost:  " + str(new_cost)) 
+        if table[key]["cost"] is None or new_cost < old_cost:
             table[key]["cost"] = new_cost
             table[key]["parent"] = parent
 
@@ -103,39 +94,39 @@ def get_next_cheapest(table):
                 cheapest_node = key
     return cheapest_node
 
+# Build the final path backward by recursively adding parents
 def get_final_path(table, end):
-    final_path = []
+    final_path= []
     node = end
     while node is not None:
         final_path.append(node)
         node = table[node]["parent"]
+    final_path.reverse()
     return final_path
 
 def dijkstra(graph, start, end):
     # Initialize the table
     # Table entries contain nodes, costs, a flag for marking processed nodes, and the parent node
-    table = dict()
+    table = {}
     for key in graph.keys():
         table[key] = {"cost": None, "processed": False, "parent": None }
 
+    # We start at the first node for free, so initialize it with 0 cost
     table[start]["cost"] = 0
+
+    # Once the next-cheapest node is the target, we know that there's no faster path than the one we've got right now.
     table[end]["processed"] = True
 
     current_node = start
-
     while current_node is not None:
-        print("current_node: " + current_node)
-        print(table)
         update_table(current_node, graph, table)
         current_node = get_next_cheapest(table)
 
-    path = get_final_path(table, end)
-    print(path)
+    return get_final_path(table, end)
 
 # Unit Tests
 class DijkstraTest(unittest.TestCase):
 
     def test_basic(self):
-        self.assertEqual(dijkstra(sample_graph, "start", "end"), None)
-
+        self.assertEqual(dijkstra(sample_graph, "start", "end"), ['start', 'b', 'a', 'end'])
 
