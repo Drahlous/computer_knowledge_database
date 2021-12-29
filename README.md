@@ -1,5 +1,11 @@
-# Data Structures and Algorithms Practice
+# Computer Knowledge Database
 
+### Note
+A significant portion of the DSA information contained within this repository is adopted from the book [Grokking Algorithms](https://github.com/egonSchiele/grokking_algorithms).
+While several of the coding samples in this repo follow the book very closely, others are my own (sometimes hacky) implementations.
+If you're looking for strictly accurate implementations, I would encourage that you use caution and remain skeptical of the code provided here.
+
+Otherwise, please join me in exploring a selection of topics across computer science! 
 
 ## Common Big O Run times
 - `O(log n):` Logarithmic time, binary search
