@@ -19,6 +19,72 @@ Otherwise, please join me in exploring a selection of topics across computer sci
 - `O(n!)`: Factorial, traveling salesman
 
 
+## Python Syntax
+
+General
+```python
+# None serves the same purpose as NULL in other languages
+a = None
+
+# Infinity (use like INT_MAX)
+float("inf")
+
+```
+
+Lists
+```python
+my_list = ["a", "b", "c"]
+
+# Get the number of elements in the list
+count = my_list.count()
+
+# yields "b"
+item = my_list[1]
+
+# yields "1"
+index = my_list.index("b")
+
+# Append to the end
+my_list.append("d")
+
+# Append another iterable (Note that this has no return value)
+my_list.extend(["e", "f", "g"])
+
+# Insert an element at the index, elements after are shifted right
+my_list.insert(3, "q")
+
+# Remove an element at an index, shift remaining elements left
+my_list.remove(3)
+
+# Remove an element at an index, but also return it
+item = my_list.pop(3)
+# The index argument is optional, default behavior is the last item [-1]
+last = my_list.pop()
+
+# Reverse the list (modify existing list, no return value)
+my_list.reverse()
+
+# Sort the List
+my_list.sort()
+
+# Create and return a new copy of the list
+list_copy = my_list.copy()
+
+```
+
+
+Hash Tables
+```python
+# The Dictionary structure is python's hash-table
+# It essentially uses JSON syntax
+my_table = {}
+my_table = dict()
+my_table["a"] = "1"
+my_table["b"] = { "c": "d" }
+```
+
+
+
 ## PlantUML Diagrams
 
 ### Install Pre-requisites:
