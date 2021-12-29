@@ -7,56 +7,23 @@ If you're looking for strictly accurate implementations, I would encourage that 
 
 Otherwise, please join me in exploring a selection of topics across computer science! 
 
-## Common Big O Run times
-- `O(log n):` Logarithmic time, binary search
+## Getting Started
 
-- `O(n):` Linear time, simple search
-
-- `O(n * log n)`: Fast sorting algorithms
-
-- `O(n^2)`: Slow sorting algorithms, bubble sort
-
-- `O(n!)`: Factorial, traveling salesman
-
-
-
-
-## PlantUML Diagrams
-
-
-### Install Pre-requisites:
+For most of the examples, I've provided a Makefile to make it easy to jump in.
+Make sure you have make installed by running the following command:
 ```bash
-# Install Java
-sudo apt install default-jre
-
-# Install Graphvis
-sudo apt install graphviz
-
-# Download PlantUML jar to ~/.local/bin/plantuml.jar
-curl -L -o ~/.local/bin/plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
-
-# Check that PlantUML is installed correctly
-java -jar ~/.local/bin/plantuml.jar
-
-# Install feh to view output PNG
-sudo apt install feh
-
-# Alternative: Use water-uml to render a live view
-sudo npm i -g water-plant-uml
-
+sudo apt install -y make
 ```
 
-### Generate Diagrams from puml file
+Then you can move into a particular directory, and run all of the unit tests with the command:
 ```bash
-# Render a PUML file into a PNG
-java -jar ~/.local/bin/plantuml.jar exampleDiagram.puml
-
-# View the PNG
-feh exampleDiagram.png
-
-# Live View:
-water-uml live exampleDiagram.puml
+make test
 ```
 
+For example, if you wanted to run the example for djikstra's algorithm written in python:
+```bash
+cd data_structures_and_algorithms/graphs/dijkstra/python
+make test
+```
 
 
