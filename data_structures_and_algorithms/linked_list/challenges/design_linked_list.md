@@ -17,3 +17,16 @@ Implement the `MyLinkedList` class:
 ## Constraints:
 - 0 <= index, val <= 1000
 - at most 200 calls
+
+"MyLinkedList",
+7 "addAtHead",
+7 "addAtTail",
+9 "addAtHead",
+8 "addAtTail",
+6 "addAtHead",
+0 "addAtHead",
+5 "get",        => 8
+0 "addAtHead",
+2 "get",        => 6
+5 "get",        => 7
+4 "addAtTail"

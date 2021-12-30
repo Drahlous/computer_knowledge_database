@@ -2,6 +2,10 @@ bin
 *.o
 *.puml
 *.png
+.cache
+
+# C++
+compile_commands.json
 
 # Rust
 target
