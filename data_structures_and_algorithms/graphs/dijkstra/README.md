@@ -51,7 +51,7 @@ It only works on `Acyclic Graphs` with `No Negative Edges`.
 At each step, when you find the `cheapest` node, the `cost` currently stored for that node is the lowest that it can possibly ever be.
 It is `mathematically impossible` that you'll find a shorter path to this node later on.
 
-This is why `Dijkstra's Algorithm` breaks down when you have `Negative-Weight edges`.
+This is why `Dijkstra's Algorithm` breaks down when you have `Negative-Weight edges within a cycle`.
 In these cases, use something like `Bellman-Ford` instead.
 
 You might be tempted to think that you can get rid of the negative-weight problem by adding a positive offset to all edges.
