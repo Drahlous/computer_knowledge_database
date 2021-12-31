@@ -28,6 +28,39 @@ bool check_cycle(Node* head) {
     return false;
 }
 
+Node* get_cycle_start(Node* head) {
+    if (!head) {
+        return nullptr;
+    }
+    Node* follower = head;
+    Node* leader = head->next;
+
+    while (leader != follower) {
+        if (!leader || !leader->next) {
+            return nullptr;
+        }
+        follower = follower->next;
+        leader = leader->next->next;
+    }
+
+    // At this point, leader == follower, they both point to a node in the cycle
+    
+    // We're going to leave the follower pointer in place
+    // and repeatedly loop through the cycle with the leader pointer
+    //
+    // After each cycle, we'll creep the head node one step deeper into the list
+    // Every time we move the leader, we'll see if we've bumped into the head
+    //
+    // This should detect the head on the cycle that it first enters the loop
+    while (head != leader) {
+        leader = leader->next;
+        if (leader == follower) {
+            head = head->next;
+        }
+    }
+    return head;
+}
+
 int main() {
     Node head(1, nullptr);
     Node second(2, nullptr);
@@ -47,6 +80,7 @@ int main() {
     head.next = &second;
     second.next = &head;
     assert(check_cycle(&head));
+    assert(&head == get_cycle_start(&head));
 
     // Cycle further out
     head.next = &second;
@@ -54,6 +88,7 @@ int main() {
     third.next = &fourth;
     fourth.next = &second;
     assert(check_cycle(&head));
+    assert(&second == get_cycle_start(&head));
 
     return 0;
 }
