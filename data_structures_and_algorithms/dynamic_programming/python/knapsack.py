@@ -1,23 +1,23 @@
 import unittest
 
 sample_items = {
-        "stereo": {
-            "value": 3000,
-            "weight": 4,
-            },
-        "laptop": {
-            "value": 2000,
-            "weight": 3,
-            },
-        "toaster": {
-            "value": 500,
-            "weight": 1,
-        },
-        "guitar": {
-            "value": 1500,
-            "weight": 1,
-        },
-    }
+    "stereo": {
+        "value": 3000,
+        "weight": 4,
+    },
+    "laptop": {
+        "value": 2000,
+        "weight": 3,
+    },
+    "toaster": {
+        "value": 500,
+        "weight": 1,
+    },
+    "guitar": {
+        "value": 1500,
+        "weight": 1,
+    },
+}
 
 
 # From the full set of items, find the smallest weight
@@ -84,9 +84,9 @@ def find_max_value_combo(items, bag_size):
 
             # Create the new bucket
             new_bucket = {
-                    "items": [curr_item],
-                    "value": curr_item_value
-                }
+                "items": [curr_item],
+                "value": curr_item_value
+            }
             
             # This bucket won't fit, take the one above us
             if leftover_weight < 0:
