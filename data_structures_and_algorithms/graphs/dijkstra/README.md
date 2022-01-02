@@ -58,6 +58,7 @@ You might be tempted to think that you can get rid of the negative-weight proble
 The problem is that, although an offset affects all `edges` equally, it *does not* affect all `paths` equally.
 Paths of different segment lengths will be changed by differing amounts.
 
+```
 Length : 2
      2
 A   -->     B
@@ -74,5 +75,4 @@ A   -->     B   -->     C
 Length : *4*
      2           2
 A   -->     B   -->     C
-
-
+```
