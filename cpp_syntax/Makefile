@@ -1,11 +1,12 @@
 default: test
 
-bin:
+vector:
 	g++ vector_syntax.cpp -o bin
-
-test: bin
 	@./bin
 
+deque:
+	g++ deque_syntax.cpp -o bin
+	@./bin
 
 clean:
 	rm bin
