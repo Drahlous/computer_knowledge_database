@@ -41,8 +41,9 @@ void process_node(string current_node, my_graph_t &graph, my_table_t &node_table
 
     cout << "Processing node: " << current_node << endl;
     // Update neighbors
-    for (auto neighbor : graph[current_node]) {
+    for (auto &neighbor : graph[current_node]) {
 
+        // If this neighbor isn't present in the table, it's the first time we've seen it
         if (node_table.find(neighbor.first) == node_table.end()) {
             cout << "first time seeing " << neighbor.first << endl;
             node_table.emplace(neighbor.first, TableEntry(neighbor.first, numeric_limits<int>::max(), false, current_node));
@@ -50,9 +51,6 @@ void process_node(string current_node, my_graph_t &graph, my_table_t &node_table
 
         int new_cost = node_table[current_node].cost + graph[current_node][neighbor.first];
         int old_cost = node_table[neighbor.first].cost;
-
-        cout << "old_cost: " << old_cost << " new_cost: " << new_cost << endl;
-        
 
         if (new_cost < old_cost) {
             node_table[neighbor.first].cost = new_cost;
@@ -62,15 +60,16 @@ void process_node(string current_node, my_graph_t &graph, my_table_t &node_table
 
     // Mark this node as processed
     node_table[current_node].isProcessed = true;
-    cout << "Finished node: " << current_node << endl;
 }
 
 string get_next_cheapest(my_table_t &table) {
-    cout << "Getting Next Cheapest Node..." << endl;
-
     TableEntry *current_cheapest = nullptr;
+
     for (auto &row : table) {
 
+        // Find a node that:
+        // - hasn't been processed
+        // - cheaper than the current best
         if (row.second.isProcessed) {
             continue;
         } else if (!current_cheapest || (row.second.cost < current_cheapest->cost)) {
@@ -79,13 +78,13 @@ string get_next_cheapest(my_table_t &table) {
     }
 
     if (current_cheapest) {
-        cout << "Found Next Cheapest Node... " << current_cheapest->name << endl;
         return current_cheapest->name;
     } else {
         return "";
     }
 }
 
+// Build the final path backwards by repeatedly jumping to parent
 void get_final_path(my_table_t &table, string start, string end) {
     list<string> final_path;
     string current_node = end;
@@ -96,9 +95,9 @@ void get_final_path(my_table_t &table, string start, string end) {
     for (auto item: final_path) {
         cout << item << endl;
     }
-
 }
 
+// Find the cheapest path from start to end
 int dijkstra(my_graph_t &graph, string start, string end) {
 
     // Create the node-cost table
@@ -106,11 +105,9 @@ int dijkstra(my_graph_t &graph, string start, string end) {
     table.emplace(start, TableEntry(start, 0, false, ""));
     print_table(table);
 
-    string current_node = start;
-
-    // Get the next-cheapest node
-    current_node = get_next_cheapest(table);
+    string current_node = get_next_cheapest(table);
     while (current_node != "" && current_node != end) {
+
         // Process the current node
         process_node(current_node, graph, table);
         print_table(table);

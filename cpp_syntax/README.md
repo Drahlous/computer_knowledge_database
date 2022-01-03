@@ -1,5 +1,14 @@
 # C++ Syntax Reference
 
+## Type Alias
+```cpp
+using my_type_t = <type>;
+
+using my_graph_t = unordered_map<string, unordered_map<string, int>>;
+
+using my_table_t = unordered_map<string, TableEntry>;
+```
+
 ## Container Common
 ```cpp
 my_container.front();
@@ -37,6 +46,16 @@ for (vector<int>::iterator it = my_vec.begin() ; it != my_vec.end(); ++it)
 
 ```
 
+## List
+```cpp
+#incude <list>
+
+list<int> my_list;
+
+my_list.push_front(1);
+my_list.push_back(2);
+
+```
 
 ## Deque
 ```cpp
@@ -78,16 +97,25 @@ if (item == my_set.end()) {
 unordered_map<string, int> my_hashmap = {
     {"first", 1},
     {"second", 2} };
+
 my_hashmap["third"] = 3;
+
+my_hashmap.emplace("fourth", 4);
 
 auto item = my_hashmap.find("first");
 
 if (item == my_map.end()) {
     cout << "not found";
 } else {
-    int first = item->first;
-    int second = item->second;
+    string key = item->first;
+    int value = item->second;
 }
+
+for (auto &entry : my_map) {
+    string key = entry.first;
+    int val = entry.second;
+}
+
 ```
 
 ## Binary Search Tree (Map)
@@ -100,5 +128,3 @@ my_map.emplace('a', 100);
 for (auto& x: my_map)
     cout << x.first << x.second;
 ```
-
-
