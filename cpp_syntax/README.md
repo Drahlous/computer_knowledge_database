@@ -9,6 +9,14 @@ using my_graph_t = unordered_map<string, unordered_map<string, int>>;
 using my_table_t = unordered_map<string, TableEntry>;
 ```
 
+## Limits
+```cpp
+#include <limits>
+
+numeric_limits<int>::max();
+numeric_limits<int>::min();
+```
+
 ## Container Common
 ```cpp
 my_container.front();
@@ -54,6 +62,9 @@ list<int> my_list;
 
 my_list.push_front(1);
 my_list.push_back(2);
+
+my_list.pop_front();
+my_list.pop_back();
 
 ```
 
