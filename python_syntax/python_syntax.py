@@ -73,3 +73,13 @@ print("\n---2x2 Sliding Down---")
 print("[[[x for x in row[left : left+width]] for row in my_int_matrix[top:top+height]] for top in range(len(my_int_matrix[0]) - height + 1)]")
 print([[[x for x in row[left : left+width]] for row in my_int_matrix[top:top+height]] for top in range(len(my_int_matrix) - height + 1)])
 
+
+combs = []
+for x in [1,2,3]:
+    for y in ["a","b","c"]:
+        combs.append((x,y))
+print(combs)
+
+combs = [(x,y) for x in [1,2,3] for y in ["a","b","c"]]
+print(combs)
+
