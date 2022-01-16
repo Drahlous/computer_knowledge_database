@@ -42,7 +42,7 @@ def from_weight_get_item(weight, list, smallest_bucket_size):
 def map_index_to_weight(index, smallest_bucket_size):
     return int(((index + 1) * smallest_bucket_size))
 
-# Given a dictionary of items {"name": { "weight", "value" }} 
+# Given a dictionary of items {"name": { "weight", "value" }}
 # And a particular bag-size (the maximum we can carry),
 # Calculate the combination of items that yields the highest overall value
 # We must be able to store this combination within the bag
@@ -71,14 +71,16 @@ def find_max_value_combo(items, bag_size):
             new_bucket = {}
 
             curr_bucket_size = map_index_to_weight(i, smallest_bucket_size)
-            
+
             # Create the "leftover space" bucket
             # and fetch the "previous" bucket (directly above us in the grid
             leftover_weight = curr_bucket_size - curr_item_weight
             leftover_bucket = None
             if len(prev_row) > 0:
                 prev_bucket = prev_row[i]
-                leftover_bucket = from_weight_get_item(leftover_weight, prev_row, smallest_bucket_size)
+                leftover_bucket = from_weight_get_item(leftover_weight,
+                                                        prev_row,
+                                                        smallest_bucket_size)
             else:
                 prev_bucket = {"items": [], "value": 0}
 
@@ -87,7 +89,7 @@ def find_max_value_combo(items, bag_size):
                 "items": [curr_item],
                 "value": curr_item_value
             }
-            
+
             # This bucket won't fit, take the one above us
             if leftover_weight < 0:
                 new_bucket = prev_bucket
@@ -100,7 +102,7 @@ def find_max_value_combo(items, bag_size):
             # If the previous bucket is a better choice, take that instead
             if prev_bucket["value"] > new_bucket["value"]:
                 new_bucket = prev_bucket
-        
+
             curr_row.append(new_bucket)
         prev_row = curr_row
 
