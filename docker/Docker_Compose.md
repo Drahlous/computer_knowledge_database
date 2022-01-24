@@ -125,3 +125,5 @@ docker-compose stop
 # Remove all containers
 docker-compose rm
 ```
+
+[up](README.md#table-of-contents)

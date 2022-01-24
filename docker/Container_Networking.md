@@ -119,3 +119,5 @@ docker network inspect frontend-network
 docker network disconnect frontend-network redis
 
 ```
+
+[up](README.md#table-of-contents)

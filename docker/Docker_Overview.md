@@ -147,3 +147,5 @@ We'll get the list of running containers with `docker ps`, then pipe them as arg
 ```bash
 docker ps -q | xargs docker stats
 ```
+
+[up](README.md#table-of-contents)

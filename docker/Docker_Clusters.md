@@ -208,3 +208,5 @@ docker service scale http=5
 # We can see the new nodes on each host
 docker ps
 ```
+
+[up](README.md#table-of-contents)
