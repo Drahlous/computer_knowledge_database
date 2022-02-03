@@ -6,8 +6,8 @@ The concept is straightforward: At every step in the algorithm, take the current
 Greedy algorithms find `local` optimizations, and don't always give the `globally optimal` best solution.
 Despite this they're often good enough, and they're `extremely fast`.
 
-
 ## Common Problems that can be Approximated with a Greedy Solution
+
 The greedy strategy can provide a `good-enough` answer to lots of `optimization` problems.
 They don't always provide the most optimal solution, but they can get close.
 
@@ -19,8 +19,8 @@ They don't always provide the most optimal solution, but they can get close.
 
 - NP-Complete problems (the optimal solution can only be found be checking every possible combination)
 
-
 ## The Set Datastructure
+
 A set contains a group of items with no duplicates.
 
 - Like a list without duplicates
@@ -33,18 +33,21 @@ second_set = set(["C", "D", "E"])
 ```
 
 A `Set Intersection` is the overlap between two sets
+
 ```python
 # Contains ["C"]
 my_intersection = first_set & second_set
 ```
 
 A `Union` is the combination of all items in both sets
+
 ```python
 # Contains ["A", "B", "C", "D", "E"]
 my_union = first_set + second_set
 ```
 
 A `Difference` removes the intersection of the sets
+
 ```python
 # Contains ["A", "B"]
 my_difference = first_set - second_set

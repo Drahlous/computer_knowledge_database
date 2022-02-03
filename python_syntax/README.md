@@ -1,6 +1,7 @@
 # Python Syntax
 
 ## General
+
 ```python
 # None serves the same purpose as NULL in other languages
 a = None
@@ -11,6 +12,7 @@ float("inf")
 ```
 
 ## Lists
+
 ```python
 my_list = ["a", "b", "c"]
 
@@ -39,6 +41,7 @@ list_copy = my_list.copy()
 ```
 
 ## Deque
+
 ```python
 my_queue = deque()
 my_queue += 3
@@ -48,6 +51,7 @@ item = my_queue.popleft()
 ```
 
 ## Hash Tables
+
 ```python
 # The Dictionary structure is python's hash-table
 # It essentially uses JSON syntax
