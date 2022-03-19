@@ -1,0 +1,23 @@
+site_name: Computer Knowledge Database
+docs_dir: 'docs'
+nav:
+  - Home: index.md
+  - Datastructures and Algorithms:
+    - Overview: data_structures_and_algorithms/README.md
+    - Selection Sort: data_structures_and_algorithms/sorting/selection_sort/README.md
+    - Recursion: data_structures_and_algorithms/recursion/README.md
+    - Quick Sort: data_structures_and_algorithms/sorting/quicksort/README.md
+    - Hash Tables: data_structures_and_algorithms/hash_table/README.md
+    - Breadth First Search: data_structures_and_algorithms/graphs/breadth_first_search/README.md
+    - Dijkstra's Algorithm: data_structures_and_algorithms/graphs/dijkstra/README.md
+    - Greedy Algorithms: data_structures_and_algorithms/greedy_algorithms/README.md
+    - Dynamic Programming: data_structures_and_algorithms/dynamic_programming/README.md
+  - Docker:
+    - Introduction: docker/README.md
+    - Overview: docker/Docker_Overview.md
+    - Building Docker Images: docker/Building_Docker_Images.md
+    - Statefule Data Containers: docker/Stateful_Data_Containers.md
+    - Container Networking: docker/Container_Networking.md
+    - Docker Compose: docker/Docker_Compose.md
+    - Docker Clusters: docker/Docker_Clusters.md
+theme: readthedocs
