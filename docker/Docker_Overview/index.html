@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Overview - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Overview";
+    var mkdocs_page_input_path = "docker/Docker_Overview.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/recursion/">Recursion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/graphs/breadth_first_search/">Breadth First Search</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/graphs/dijkstra/">Dijkstra's Algorithm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/dynamic_programming/">Dynamic Programming</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#formatting-output-from-docker-ps">Formatting Output from docker ps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-docker-inspect">Adding Docker Inspect</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ports">Ports</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#persistent-data">Persistent Data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#foreground-background-containers">Foreground &amp; Background Containers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment Variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#docker-stats">Docker Stats</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#single-container">Single Container</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multiple-containers">Multiple Containers</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Clusters/">Docker Clusters</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Docker &raquo;</li>
+        
+      
+    
+    <li>Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="docker">Docker</h1>
+<ul>
+<li>
+<p>Containers are a <em>paradigm</em> for application development and deployment.</p>
+</li>
+<li>
+<p>Containers use Linux Kernel features to run applications in an isolated way on a shared machine</p>
+</li>
+<li>namespaces</li>
+<li>cgroups</li>
+<li>capabilities</li>
+<li>Application source code, Docker build info, and automation code should be stored together on github.</li>
+</ul>
+<hr />
+<h2 id="commands">Commands</h2>
+<pre><code class="language-bash"># Find existing images on the Docker registry
+docker search &lt;image&gt;
+
+# List all running containers
+docker ps
+
+# Get more details about a container
+# docker inspect &lt;name|id&gt;
+
+# Display messages the container has written to stderr or stdout
+docker logs &lt;name|id&gt;
+</code></pre>
+<hr />
+<h2 id="formatting-output-from-docker-ps">Formatting Output from docker ps</h2>
+<p>The standard <code>docker ps</code> command outputs the name, image used, command, uptime, and port info.
+It's output in a tabular format:
+CONTAINER ID | IMAGE | COMMAND | CREATED | STATUS | PORTS | NAMES
+---|---|---|---|---|---|---
+a05ef43766d1 | redis | "docker-entrypoint.s…" | 4 minutes ago | Up 4 minutes | 6379/tcp | pedantic_ride</p>
+<p>We can limit which columns are displayed using the <code>--format</code> parameter.
+The pretty-printing is configured using a (<a href="../../undefined">Go Template</a>) syntax:</p>
+<pre><code class="language-bash">
+$docker ps --format '{{.Names}} container is using {{.Image}} image'
+pedantic_ride container is using redis image
+
+# And since it's using Go templates, it includes helper functions like &quot;table&quot;
+$docker ps --format 'table {{.Names}}\t{{.Image}}'
+NAMES               IMAGE
+pedantic_ride       redis
+</code></pre>
+<h2 id="adding-docker-inspect">Adding Docker Inspect</h2>
+<p>The <strong>docker ps</strong> command doesn't give us all the information about a container.
+We'll also want to be able to display info from <strong>docker inspect</strong>.</p>
+<p>The output from <strong>inspect</strong> is in a JSON format, but we can use the same syntax</p>
+<pre><code class="language-bash"># Note the multi-level JSON parsing with .NetworkSettings.IPAddress
+docker ps -q | xargs docker inspect --format '{{ .Id }} - {{.Name}} - {{ .NetworkSettings.IPAddress }}'
+</code></pre>
+<hr />
+<h2 id="ports">Ports</h2>
+<p>Containers are in a sandbox</p>
+<ul>
+<li>if a service must be accessible by a process outside the container, we'll need to expose the <strong>port</strong> via the <strong>host</strong></li>
+<li>ports are bound when the container starts using <code>-p &lt;host-port&gt;:&lt;container-port&gt;</code></li>
+</ul>
+<pre><code class="language-bash">docker run -d --name redisHostPort -p 6379:6379 redis:latest
+</code></pre>
+<p>By default, the port on host is mapped to <code>0.0.0.0</code> which means <strong>all ip-addresses</strong>. You can specify a specific ip with <code>-p 127.0.0.1:6379:6379</code></p>
+<p>If you run a process on a <strong>fixed-port</strong> then you can only run one instance! You can randomly assign one and discover it instead with <code>port &lt;name&gt;</code>:</p>
+<pre><code class="language-bash">docker run -d --name redisDynamic -p 6379 redis:latest
+docker port redisDynamic 6379
+</code></pre>
+<hr />
+<h2 id="persistent-data">Persistent Data</h2>
+<p>Containers are designed to be <strong>stateless</strong>.
+You can bind directories (volumes): <code>-v &lt;host-dir&gt;:&lt;container:dir&gt;</code>.
+This way, the data is stored on the host, and is persistent.</p>
+<p>For example, say we know that Redis stores logs and data to the <code>/data</code> directory.
+We should map this to the host as <code>/opt/docker/data/redis</code>:</p>
+<pre><code class="language-bash">docker run -d --name redisMapped -v /opt/docker/data/redis:/data redis
+</code></pre>
+<hr />
+<h2 id="foreground-background-containers">Foreground &amp; Background Containers</h2>
+<p>Previously, we've run docker with the <code>-d</code> flag, meaning "run this in the background as a <code>detatched</code> container".</p>
+<p>We can use <code>-it</code> instead to get an <code>interactive terminal</code>.</p>
+<pre><code class="language-bash">docker run -it ubuntu bash
+</code></pre>
+<hr />
+<h2 id="environment-variables">Environment Variables</h2>
+<p>Docker images should be built to be transferable between environments without issues or rebuilding.</p>
+<p>Environment variables can be defined when you launch a container.</p>
+<pre><code class="language-bash">docker run -d --name my_production_running_app -e NODE_ENV=production -p 3000:3000 my-nodejs-app
+</code></pre>
+<hr />
+<h2 id="docker-stats">Docker Stats</h2>
+<p>When you're running production containers, it's important to monitor the runtime metrics like CPU and memory usage.
+Docker has some built in tools for this purpose</p>
+<h2 id="single-container">Single Container</h2>
+<p>Say we have an existing running container with the name <em>nginx</em>. We can check its stats with the <strong>stats</strong> command:</p>
+<pre><code class="language-bash"># This will provide live data from the container
+docker stats nginx
+</code></pre>
+<h2 id="multiple-containers">Multiple Containers</h2>
+<p>If we want to view the stats for multiple containers, we can use xargs.
+We'll get the list of running containers with <code>docker ps</code>, then pipe them as arguments to <code>docker stats</code>.</p>
+<pre><code class="language-bash">docker ps -q | xargs docker stats
+</code></pre>
+<p><a href="../#table-of-contents">up</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Building_Docker_Images/" class="btn btn-neutral float-right" title="Building Docker Images">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Building_Docker_Images/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

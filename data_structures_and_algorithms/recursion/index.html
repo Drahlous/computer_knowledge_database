@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Recursion - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Recursion";
+    var mkdocs_page_input_path = "data_structures_and_algorithms/recursion/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Recursion</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#base-case">Base Case</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recursive-case">Recursive Case</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-stack-datastructure">The Stack Datastructure</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphs/breadth_first_search/">Breadth First Search</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphs/dijkstra/">Dijkstra's Algorithm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dynamic_programming/">Dynamic Programming</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Clusters/">Docker Clusters</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Datastructures and Algorithms &raquo;</li>
+        
+      
+    
+    <li>Recursion</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="recursion">Recursion</h1>
+<h2 id="overview">Overview</h2>
+<p>Imagine that you find yourself crouching around the dusty attic at your grandmas, when you find an old locked chest.
+You ask where the key is, and she points to a cardboard box in the corner. You open the box to find a set of smaller boxes.</p>
+<p>If you want to find the key in this nested set of boxes, you might use a recursive algorithm.</p>
+<ol>
+<li>Look through the box</li>
+<li>If you find a box, open it and go back to step 1</li>
+<li>If you find a key, youre done!</li>
+</ol>
+<p>Loops can perform better, but recursion can be more readable in some cases (or the only option!)</p>
+<h3 id="base-case">Base Case</h3>
+<p>The <code>Base Case</code> tells you when youre finished and can stop recursing</p>
+<h3 id="recursive-case">Recursive Case</h3>
+<p>The <code>Recursive Case</code> is the part that you keep jumping back into until you end up with the base case</p>
+<h3 id="the-stack-datastructure">The Stack Datastructure</h3>
+<p>A <code>Stack</code> allows you to do two actions:</p>
+<ul>
+<li><code>Push</code> a new item to the top</li>
+<li><code>Pop</code> the top item off the stack</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>
+<p>Recursion is when functions call themselves</p>
+</li>
+<li>
+<p>Every recursive function has a <code>base case</code> and a <code>recursive case</code></p>
+</li>
+<li>
+<p>A <code>Stack</code> can <code>push</code> and <code>pop</code></p>
+</li>
+<li>
+<p>Functions are added on top of the <code>callstack</code>, which can get very large, take a lot of memory, and overflow</p>
+</li>
+<li>
+<p>When working with <code>recursive array functions</code>, the base case is often an <code>empty array</code> or <code>one-element array</code></p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sorting/quicksort/" class="btn btn-neutral float-right" title="Quick Sort">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../sorting/selection_sort/" class="btn btn-neutral" title="Selection Sort"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../sorting/selection_sort/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sorting/quicksort/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

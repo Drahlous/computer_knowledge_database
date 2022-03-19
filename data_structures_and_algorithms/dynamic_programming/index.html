@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Dynamic Programming - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dynamic Programming";
+    var mkdocs_page_input_path = "data_structures_and_algorithms/dynamic_programming/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recursion/">Recursion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphs/breadth_first_search/">Breadth First Search</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphs/dijkstra/">Dijkstra's Algorithm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Dynamic Programming</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-knapsack-problem">The Knapsack Problem</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-knapsack-dp-solution">The Knapsack DP Solution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dp-questions-and-clarifications">DP Questions and Clarifications</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-if-we-add-another-item-do-we-have-to-re-calculate-everything">What if we add another item, do we have to re-calculate everything?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-if-you-add-an-item-thats-smaller-than-the-smallest-bucket">What if you add an item that's smaller than the smallest bucket?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#can-you-steal-fractions-of-an-item">Can you steal fractions of an item?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#can-you-have-items-that-depend-on-eachother-eg-buy-one-get-one-half-off">Can you have items that depend on eachother? (e.g. buy one get one half off)</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#key-points">Key Points</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Clusters/">Docker Clusters</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Datastructures and Algorithms &raquo;</li>
+        
+      
+    
+    <li>Dynamic Programming</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dynamic-programming">Dynamic Programming</h1>
+<p>Dynamic Programming is used for <code>optimization problems</code> that involve a <code>constraint</code>.</p>
+<p>Dynamic Programming is a technique for solving hard problems, it's not a one-size-fits-all algorithm.
+It only works on problems that can be broken into <code>discrete sub-problems</code>.</p>
+<h2 id="overview">Overview</h2>
+<p>Every Dynamic Programming algorithm uses a <code>grid</code> to keep track of the results of the subproblem.</p>
+<ul>
+<li>
+<p>Break a large problem into smaller subproblems (sort of like recursion)</p>
+</li>
+<li>
+<p>Store the results from each of the subproblems in the <code>grid</code></p>
+</li>
+<li>
+<p>Build the final solution up by re-using the already-computed results of the subproblems</p>
+</li>
+</ul>
+<h2 id="the-knapsack-problem">The Knapsack Problem</h2>
+<p>You are a thief. You can only steal the things you can fit in your bag.
+You see these items that you might steal:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stereo</td>
+<td>$3000</td>
+<td>4 lbs</td>
+</tr>
+<tr>
+<td>Laptop</td>
+<td>$2000</td>
+<td>3 lbs</td>
+</tr>
+<tr>
+<td>Guitar</td>
+<td>$1500</td>
+<td>1 lbs</td>
+</tr>
+<tr>
+<td>Toaster</td>
+<td>$500</td>
+<td>1 lbs</td>
+</tr>
+</tbody>
+</table>
+<p>You want to steal as much <code>value</code> as you can, but your bag only carries <code>4 lbs</code>!
+What should we take?</p>
+<p>So you can steal the Stereo for $3000, but that takes up all of your 4 lb bag space.</p>
+<p>You could take the Laptop for $2000, which uses 3 lbs of your bag space.
+That leaves us with <em>1 lb of leftover space</em>.
+In that <em>leftover space</em> we could take the toaster or the guitar.
+It's obvious to us that we'd take the guitar, it's more valuable.</p>
+<p>This is the part that we should focus on:
+What question are we really answering here?</p>
+<blockquote>
+<p>In that <em>leftover space</em> we could take the toaster or the guitar.
+It's obvious to us that we'd take the guitar, it's more valuable.</p>
+</blockquote>
+<p>We can rephrase this question as <em>What is the maximum value we can put in 1 lb of leftover space?</em></p>
+<p>But what if we had <em>2 lbs of leftover space</em>? We can't just multiply the 1 lb answer by 2, there is only one guitar that we can steal!
+So there is probably a different answer for all of the <em>leftover space</em> options: 1lb, 2lb, 3lb.</p>
+<p>Then, when we're deciding whether to take the next item, we have the <em>current max</em> for each of those bucket sizes.
+If we have leftover space, we have a pre-computed <em>maximum value</em> that we can fit in that space!</p>
+<h3 id="the-knapsack-dp-solution">The Knapsack DP Solution</h3>
+<p>First, we'll setup the <code>grid</code>.
+Each <code>column</code> represents the solution to the subproblem where <code>bag-size</code> is that column number.
+Each row is a potential item to steal.</p>
+<p>We have a <code>bag</code> of <code>size 4</code>, so our right-most column will have the value <code>4lbs</code>.
+The smallest item weighs <code>1lbs</code>, this will be the size of our smallest bucket &amp; the increments between buckets.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1lb</th>
+<th>2lb</th>
+<th>3lb</th>
+<th>4lb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p>Now we can add the rows, one for each item:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1lb</th>
+<th>2lb</th>
+<th>3lb</th>
+<th>4lb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stereo</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Laptop</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Guitar</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Toaster</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>First we'll solve the stereo row:</p>
+<p>The stereo won't fit in any of the bags with weights 1 through 3, and we don't know anything better to put in there yet.
+It will fit in the 4lb slot though, so we'll mark that one.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1lb</th>
+<th>2lb</th>
+<th>3lb</th>
+<th>4lb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stereo</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3000 {S}</td>
+</tr>
+<tr>
+<td>Laptop</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Guitar</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Toaster</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Now we can solve the <code>Laptop Row</code>. It won't fit in the 1lb or 2lb colums. It will fit in the 3lb slot, and we haven't seen a better deal yet, so we'll mark it there.
+When we get to the 4lb slot, we can choose to take the previous best (<code>the cell directly above us, a $3000 stereo</code>).
+Or we can craft a solution with the current item, the <code>Laptop, which is 3lbs</code>.
+If we took the laptop, we'd have 1lb of free space leftover that we could fill. We haven't filled any cells in the 1lb column yet, so we can't get any more value than the laptop alone. The stereo is better than the laptop alone, so we'll take that.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1lb</th>
+<th>2lb</th>
+<th>3lb</th>
+<th>4lb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stereo</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3000 {S}</td>
+</tr>
+<tr>
+<td>Laptop</td>
+<td>0</td>
+<td>0</td>
+<td>2000 {L}</td>
+<td>3000 {S}</td>
+</tr>
+<tr>
+<td>Guitar</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Toaster</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Next we can do the <code>Guitar Row</code>.
+This one fits in the 1lb and 2lb slots, so we'll take it.
+When we get to the 3lb slot, we compare our potential value with the row above us:
+We know that we can fill a 3lb slot with a $2000 laptop, or we could grab the guitar to have 2lbs left over.</p>
+<p>What's the best thing we can fit in a 2lb slot? The 2lb slot in the row above us tells us that we don't have any valuable choices.
+So we'll take the $2000 laptop.
+However, the 4lb slot leaves us with 3lbs leftover, so we can add the contents of the 3lb slot from the row above:</p>
+<p>$2000 Laptop + $1500 Guitar = $3500</p>
+<p>That's better than our other choice for this slot, the $3000 Stereo.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1lb</th>
+<th>2lb</th>
+<th>3lb</th>
+<th>4lb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stereo</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3000 {S}</td>
+</tr>
+<tr>
+<td>Laptop</td>
+<td>0</td>
+<td>0</td>
+<td>2000 {L}</td>
+<td>3000 {S}</td>
+</tr>
+<tr>
+<td>Guitar</td>
+<td>1500 {G}</td>
+<td>1500 {G}</td>
+<td>2000 {L}</td>
+<td>3500 {L,G}</td>
+</tr>
+<tr>
+<td>Toaster</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Finally, the toaster only beats the guitar by itself in the 2lb slot.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1lb</th>
+<th>2lb</th>
+<th>3lb</th>
+<th>4lb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stereo</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3000 {S}</td>
+</tr>
+<tr>
+<td>Laptop</td>
+<td>0</td>
+<td>0</td>
+<td>2000 {L}</td>
+<td>3000 {S}</td>
+</tr>
+<tr>
+<td>Guitar</td>
+<td>1500 {G}</td>
+<td>1500 {G}</td>
+<td>2000 {L}</td>
+<td>3500 {L,G}</td>
+</tr>
+<tr>
+<td>Toaster</td>
+<td>1500 {G}</td>
+<td>2000 {T,G}</td>
+<td>2000 {L}</td>
+<td>3500 {L,G}</td>
+</tr>
+</tbody>
+</table>
+<p>So our final answer is the contents of the 4lb slot in our last row!
+We'll take the Laptop and Guitar for a total of $3500.</p>
+<h3 id="dp-questions-and-clarifications">DP Questions and Clarifications</h3>
+<h4 id="what-if-we-add-another-item-do-we-have-to-re-calculate-everything">What if we add another item, do we have to re-calculate everything?</h4>
+<p>No, we only need to save the very last row.</p>
+<h4 id="what-if-you-add-an-item-thats-smaller-than-the-smallest-bucket">What if you add an item that's smaller than the smallest bucket?</h4>
+<p>You need to redistribute the bucket sizes and re-calculate everything.</p>
+<h4 id="can-you-steal-fractions-of-an-item">Can you steal fractions of an item?</h4>
+<p>Not with Dynamic Programming, but you wouldn't want to anyways. If you can take fractions, just use a Greedy Solution instead!</p>
+<h4 id="can-you-have-items-that-depend-on-eachother-eg-buy-one-get-one-half-off">Can you have items that depend on eachother? (e.g. buy one get one half off)</h4>
+<p>No, the problem must be divided into <code>discrete subproblems</code>. They cannot be interdependent.</p>
+<h2 id="key-points">Key Points</h2>
+<ul>
+<li>
+<p>Dynamic Programming is good when you're trying to <code>optimize</code> given a <code>constraint</code></p>
+</li>
+<li>
+<p>Every solution will involve creating a <code>grid</code>. Your goal is to optimize the <code>values in the cells</code>.</p>
+</li>
+<li>
+<p>There is <code>no one-size-fits-all formula</code>. Instead this is a strategy you can use to think about optimization problems.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../docker/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../greedy_algorithms/" class="btn btn-neutral" title="Greedy Algorithms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../greedy_algorithms/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../docker/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

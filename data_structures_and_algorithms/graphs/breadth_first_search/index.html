@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Breadth First Search - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Breadth First Search";
+    var mkdocs_page_input_path = "data_structures_and_algorithms/graphs/breadth_first_search/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../recursion/">Recursion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Breadth First Search</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#topics-covered">Topics Covered</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bfs-usecase-examples">BFS Usecase Examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction-to-graphs">Introduction to Graphs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bfs-overview">BFS Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#queues">Queues</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implementing-a-graph-in-code">Implementing a Graph in code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implementing-the-breadth-first-search-algorithm">Implementing the Breadth First Search Algorithm</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#complexity-of-breadth-first-search-ov-e">Complexity of Breadth First Search O(V + E)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#breadth-first-search-recap">Breadth First Search Recap</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dijkstra/">Dijkstra's Algorithm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../dynamic_programming/">Dynamic Programming</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Docker_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Docker_Clusters/">Docker Clusters</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Datastructures and Algorithms &raquo;</li>
+        
+      
+    
+    <li>Breadth First Search</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="breadth-first-search-bfs">Breadth First Search (BFS)</h1>
+<h2 id="topics-covered">Topics Covered</h2>
+<ul>
+<li>
+<p><code>Graphs</code>: Data structure used to map networks and relationships (Directed vs Undirected)</p>
+</li>
+<li>
+<p><code>Breadth First Search</code>: Algorithm used on graphs, can answer questions like <code>whats the shortest X?</code></p>
+</li>
+<li>
+<p><code>Topological Sort</code>: A type of sorting algorithm that exposes <code>dependencies</code> between nodes</p>
+</li>
+</ul>
+<h3 id="bfs-usecase-examples">BFS Usecase Examples</h3>
+<p>BFS is good at finding <strong>shortest-paths</strong>:</p>
+<ul>
+<li>
+<p>Write a checkers AI to calculate the fewest moves to victory</p>
+</li>
+<li>
+<p>Write a spellchecker (fewest number of edits to translate a misspelled word into a real one, e.g. Readed is one-off from Reader)</p>
+</li>
+<li>
+<p>Find the nearest doctor to you within your insurance network</p>
+</li>
+</ul>
+<h2 id="introduction-to-graphs">Introduction to Graphs</h2>
+<p>A <code>Graph</code> models a set of <code>objects (nodes)</code> along with the <code>connections (edges)</code> between them.</p>
+<h2 id="bfs-overview">BFS Overview</h2>
+<p><code>Breadth first search</code> is an algorithm used to search through graph data structures.
+They allow you to answer two types of questions:</p>
+<ul>
+<li>
+<p>Is there a path from A to B?</p>
+</li>
+<li>
+<p>What is the shortest path from A to B?</p>
+</li>
+</ul>
+<p>Say for example that you're a mango farmer, and you're looking through facebook to find a mango seller.
+How would you check whether you're connected to a mango seller?</p>
+<p>The search is simple:</p>
+<ol>
+<li>Make a list of friends to search</li>
+<li>Go to each person on the list, check if they sell mangos</li>
+</ol>
+<p>But what if none of your friends are mango sellers? Then you need to check <code>friends-of-friends</code>.
+3. Each time you add someone to the list of people to check, add all of their friends to the list too!</p>
+<p>Adding step (3) makes this <code>Breadth First Search</code>, and it will eventually cover the entire network.</p>
+<p>So we've answered the first question: <code>Is there a path from A to B?</code>
+But how do we answer the second question: <code>What is the shortest path from A to B?</code></p>
+<p>The nice thing is that BFS already works this way!
+As long as we <code>check items in the same order that they're added to the list</code>, we'll automatically find the shortest path first.
+This will automatically search all first-degree connections before any second-degree connections;
+It will search all second-degree connections before any third-degree connections, and so on...</p>
+<p>But how do we ensure that we only check items in the same order that they're added to the list?
+We need a new data structure, called a <code>Queue</code>...</p>
+<h3 id="queues">Queues</h3>
+<p>Queues work the same way that you're used to in real life;
+although you might call them <code>lines</code>, as in: <code>waiting in the lunch line</code></p>
+<p>Queues are similar to Stacks, with one key difference:</p>
+<ul>
+<li><code>Queues</code> are FIFO (First in, First out)</li>
+<li><code>Stacks</code> are LIFO (Last in, First out)</li>
+</ul>
+<p>Like Stacks, Queues are also <code>bad at Random Access</code></p>
+<p>Queues support two operations:</p>
+<ul>
+<li><code>Enqueue</code> (push to front)</li>
+<li><code>Dequeue</code> (pop from back)</li>
+</ul>
+<h2 id="implementing-a-graph-in-code">Implementing a Graph in code</h2>
+<p>To implement a Graph, we need two things:</p>
+<ul>
+<li><code>Nodes</code></li>
+<li><code>Edges</code> (Connections between the nodes)</li>
+</ul>
+<p>So we need a data structure that lets us model the relationships between objects...
+Do we already know anything that can do this for us?</p>
+<p><code>Hash Tables</code>!</p>
+<p>In python, we can implement a graph with a <code>dictionary (hash_table)</code>.
+For each entry, the <code>key</code> will represent a particular node.
+The <code>value</code> will be a list of other nodes, meaning that there is an edge from this node to each node in the list.
+This is called an <code>adjacency list</code></p>
+<pre><code class="language-python"># There are directed edges from you to alice, bob, and claire
+graph = {}
+graph[&quot;you&quot;] = [&quot;alice&quot;, &quot;bob&quot;, &quot;claire&quot;]
+
+
+# We can add second-degree connections like this
+graph[&quot;bob&quot;] = [&quot;anuj&quot;, &quot;peggy&quot;]
+</code></pre>
+<p>Note that the order within the adjacency list doesn't matter.</p>
+<h2 id="implementing-the-breadth-first-search-algorithm">Implementing the Breadth First Search Algorithm</h2>
+<p>Remember that the implementation will work like this:</p>
+<ol>
+<li>
+<p>Keep a <code>Queue</code> containing the people to check</p>
+</li>
+<li>
+<p><code>Pop</code> a person off the queue</p>
+</li>
+<li>
+<p>Check whether this person is the target</p>
+</li>
+</ol>
+<p>4.
+    - if this is the target, then we're done! return true</p>
+<pre><code>- if this is not the target, add all of their `neighbors` to the `queue`
+</code></pre>
+<ol>
+<li>
+<p>Loop back to step 1</p>
+</li>
+<li>
+<p>if the queue is empty, no route exists. return false</p>
+</li>
+</ol>
+<p>Python supports <code>Queues</code> with the <code>Deque (Double Ended Queue)</code></p>
+<pre><code class="language-python">from collections import deque
+
+def search():
+    # Create the list of people to search
+    search_queue = deque()
+
+    # Add the list of your neighbors to the search-queue
+    search_queue += graph[&quot;you&quot;]
+
+    # While the search queue is not empty
+    while search_queue:
+        person = search_queue.popleft()
+        if person_is_seller(person):
+            print(person + &quot; is a seller!&quot;)
+            return True
+        else:
+            search_queue += graph[person]
+
+</code></pre>
+<p>But what happens when two people have the same friend?
+In this example, both bob and alice are friends with peggy, so we'll end up checking her twice!</p>
+<pre><code class="language-python">graph[&quot;bob&quot;] = [&quot;anuj&quot;, &quot;peggy&quot;]
+graph[&quot;alice&quot;] = [&quot;peggy&quot;]
+</code></pre>
+<p>To prevent this, <em>we'll need to keep track of which people we've already checked</em>.</p>
+<p>If we don't track the already-checked people, we might end up in an infinite loop. This could happen if the graph has a <em>cyclic dependency</em>:</p>
+<pre><code class="language-python">graph[&quot;you&quot;] = [&quot;peggy&quot;]
+graph[&quot;peggy&quot;] = [&quot;you&quot;]
+</code></pre>
+<ul>
+<li>We would add you're neighbors (peggy) before checking you.</li>
+<li>We'd move on to checking peggy, first adding her neighbors (you)</li>
+<li>Jumping back to you, we'd add your neighbors (peggy) again...</li>
+</ul>
+<p>Accounting for the duplication prevention, we get:</p>
+<pre><code class="language-python">
+# Perform a Breadth-First-Search through &quot;graph&quot;,
+# Starting from the entry at &quot;name&quot;
+# Returns the name of the nearest mango-seller or None if no such path exists
+def search(name, graph):
+
+    # Create the list of people to search
+    search_queue = deque()
+
+    # Add the list of your neighbors to the search-queue
+    if graph.get(name):
+        search_queue += graph[name]
+
+    # Keep track of which people we've already searched
+    searched = []
+
+    # While the search queue is not empty
+    while search_queue:
+        person = search_queue.popleft()
+        # Only search people we've never seen
+        if not person in searched:
+            if person_is_seller(person):
+                return person
+            else:
+                # Add this persons neighbor's to the queue
+                search_queue += graph[person]
+                searched.append(person)
+    return None
+</code></pre>
+<h2 id="complexity-of-breadth-first-search-ov-e">Complexity of Breadth First Search <code>O(V + E)</code></h2>
+<p>If you search the entire network then you'll follow every edge, so we're at least <code>O(E)</code> where <code>E = number_of_edges</code>.
+Further, you'll need to add each node (vertex) to queue at some point. That's individually constant, but we do it <code>V = number_of_vertices</code> times, for <code>O(V)</code>.</p>
+<p>Combined, we get <code>O(V + E)</code> where <code>V is the number of Vertices</code>, <code>E is the number of edges</code>.</p>
+<h2 id="breadth-first-search-recap">Breadth First Search Recap</h2>
+<ul>
+<li>
+<p>BFS tells you if there's a path from A to B</p>
+</li>
+<li>
+<p>If a path exists, BFS find the shortest path</p>
+</li>
+<li>
+<p>A <code>directed graph</code> has arrows, the <code>direction</code> of the arrows represents the dependency direction.</p>
+</li>
+<li>
+<p>An <code>undirected graph</code> has no arrows, and the relationships go <code>both ways</code></p>
+</li>
+<li>
+<p><code>Queues are FIFO (First in, First out)</code></p>
+</li>
+<li>
+<p><code>Stacks are LIFO (Last in, First out)</code></p>
+</li>
+<li>
+<p>You must check people in the <code>order</code> that they're added to the <code>search_queue</code>, otherwise you don't get the shortest path.</p>
+</li>
+<li>
+<p>You must keep a list of the people you've already checked to prevent <code>duplicates</code>, otherwise you risk <code>infinite loops</code>.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../dijkstra/" class="btn btn-neutral float-right" title="Dijkstra's Algorithm">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../hash_table/" class="btn btn-neutral" title="Hash Tables"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../hash_table/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dijkstra/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

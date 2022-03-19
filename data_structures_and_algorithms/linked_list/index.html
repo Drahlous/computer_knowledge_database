@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Linked Lists - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Linked Lists";
+    var mkdocs_page_input_path = "data_structures_and_algorithms/linked_list/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recursion/">Recursion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphs/breadth_first_search/">Breadth First Search</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../graphs/dijkstra/">Dijkstra's Algorithm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dynamic_programming/">Dynamic Programming</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/Docker_Clusters/">Docker Clusters</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Linked Lists</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="linked-lists">Linked Lists</h1>
+<h2 id="overview">Overview</h2>
+<p>A Linked List is a set of elements where each node stores the address of the next node.</p>
+<h2 id="advantages-of-linked-lists-over-arrays">Advantages of Linked Lists over Arrays</h2>
+<p>Imagine you're at lunch with a group of four friends. You'd like to sit together at one table, so you take a small table with four spots.
+You sit down and start enjoying your meal, when a fifth friend shows up. Now, everybody has to stand up as a group and look for a bigger table.</p>
+<p>This is the same problem we see with adding elements to contiguous arrays. We have to store all of the elements in the same area of memory. If we need more memory, we have to move ALL of the elements to a new segment. This can be very expensive!</p>
+<p>This is called <code>random insertion</code>, which <code>Linked Lists</code> are really <code>good</code> at!</p>
+<h3 id="insertion-complexity">Insertion Complexity</h3>
+<ul>
+<li><code>Linked List: O(1)</code></li>
+<li><code>Array:       O(n)</code></li>
+</ul>
+<h2 id="disadvantages-of-linked-lists-over-arrays">Disadvantages of Linked Lists over Arrays</h2>
+<p>Have you ever visited one of those clickbait "Top Ten Bands of All Time" websites, where each item is a separate webpage?
+They start you all the way at number 10 so you have to click the <code>next</code> button over and over to who the number one pick is.
+You'd really rather jump right to the front and get it over with.</p>
+<p>This is called <code>random access</code>, and <code>Linked Lists</code> are really <code>bad</code> at it.</p>
+<p>Every time you want to access an item, you have to start at the head and work your way down.</p>
+<h3 id="reading-complexity">Reading Complexity</h3>
+<ul>
+<li><code>Linked List: O(n)</code></li>
+<li><code>Array:       O(1)</code></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Linked Lists are useful if you're:</p>
+<ul>
+<li>
+<p>Doing lots of <code>inserts</code></p>
+</li>
+<li>
+<p>Don't need to do <code>random read</code> often</p>
+</li>
+<li>
+<p>Are planning to read every element anyway</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

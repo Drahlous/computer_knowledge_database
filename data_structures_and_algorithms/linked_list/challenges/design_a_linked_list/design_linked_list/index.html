@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  <title>Challenge: Design a Linked List - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Challenge: Design a Linked List";
+    var mkdocs_page_input_path = "data_structures_and_algorithms/linked_list/challenges/design_a_linked_list/design_linked_list.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../../../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../recursion/">Recursion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../graphs/breadth_first_search/">Breadth First Search</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../graphs/dijkstra/">Dijkstra's Algorithm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../dynamic_programming/">Dynamic Programming</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../docker/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../docker/Docker_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../docker/Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../docker/Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../docker/Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../docker/Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../docker/Docker_Clusters/">Docker Clusters</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Challenge: Design a Linked List</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="challenge-design-a-linked-list">Challenge: Design a Linked List</h1>
+<p>Design a singly linked list such that each node has a <code>val</code> and <code>next</code> attribute.</p>
+<p>Implement the <code>MyLinkedList</code> class:</p>
+<ul>
+<li>
+<p><code>int get(int index)</code> get the value of the node at index. If the index is invalid, return <code>-1</code></p>
+</li>
+<li>
+<p><code>void addAtHead(int val)</code> add a node with value <code>val</code> before the first element. The new node becomes the head of the list.</p>
+</li>
+<li>
+<p><code>void addAtTail(int val)</code> append a node with value <code>val</code> at the end of the list.</p>
+</li>
+<li>
+<p><code>void addAtIndex(int index, int val)</code> insert a node with value <code>val</code> at the specified <code>index</code>. If <code>index</code> equals the length of the list, append to the end. If the index is invalid, do not insert the node.</p>
+</li>
+<li>
+<p><code>void deleteAtIndex(int index)</code> delete the node at the specified <code>index</code>. If <code>index</code> is invalid, do nothing.</p>
+</li>
+</ul>
+<h2 id="constraints">Constraints:</h2>
+<ul>
+<li>0 &lt;= index, val &lt;= 1000</li>
+<li>at most 200 calls</li>
+</ul>
+<p>"MyLinkedList",
+7 "addAtHead",
+7 "addAtTail",
+9 "addAtHead",
+8 "addAtTail",
+6 "addAtHead",
+0 "addAtHead",
+5 "get",        =&gt; 8
+0 "addAtHead",
+2 "get",        =&gt; 6
+5 "get",        =&gt; 7
+4 "addAtTail"</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../../../../..';</script>
+    <script src="../../../../../js/theme_extra.js" defer></script>
+    <script src="../../../../../js/theme.js" defer></script>
+      <script src="../../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

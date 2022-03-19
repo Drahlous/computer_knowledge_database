@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Docker Clusters - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Docker Clusters";
+    var mkdocs_page_input_path = "docker/Docker_Clusters.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/recursion/">Recursion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/graphs/breadth_first_search/">Breadth First Search</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/graphs/dijkstra/">Dijkstra's Algorithm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data_structures_and_algorithms/dynamic_programming/">Dynamic Programming</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Docker Clusters</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#nginx-proxy">NGINX Proxy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#single-host">Single Host</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cluster">Cluster</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generated-nginx-configuration">Generated NGINX Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#docker-swarm">Docker Swarm</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#key-concepts">Key Concepts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#initialize-swarm-mode">Initialize Swarm Mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#join-the-cluster">Join the Cluster</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-an-overlay-network">Create an Overlay Network</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deploy-a-service">Deploy a Service</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inspect-state">Inspect State</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scale-the-service">Scale the Service</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Docker &raquo;</li>
+        
+      
+    
+    <li>Docker Clusters</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="load-balancing-containers">Load Balancing Containers</h1>
+<p>We'll explore how to use the NGINX web server to load balance requests between two containers.</p>
+<p>Docker provides serveral ways for containers to communicate. We explored links, which configure the container using environment variables and host entry's.</p>
+<p>The <strong>Service Discovery Pattern</strong> is where the application uses a third-party system to identify the location of a target service. For example, if our application wanted to talk to a database, it would ask an API what the address of the database is.</p>
+<p>This pattern allows you to <strong>quickly reconfigure</strong> and <strong>scale</strong> your architecture with better <strong>fault tolerance</strong> than fixed locations.</p>
+<h2 id="nginx-proxy">NGINX Proxy</h2>
+<p>In this example, we want an NGINX service which can dynamically discover and update its load balancing configuration when new containers are added.
+This implementation already exists, it's called <strong>nginx-proxy</strong>.</p>
+<p><strong>Nginx-proxy</strong> accepts HTTP requests, then proxies the request to the appropriate container (based on the request Hostname).</p>
+<p>There are three key properties that must be configured when launching a proxy container:</p>
+<ul>
+<li>The container must be bound to <strong>port 80</strong> on the host.</li>
+<li>This ensures that all HTTP requests are handled by the proxy.</li>
+<li>The <strong>docker.sock</strong> file must be mounted.</li>
+<li>It's a connection to the docker daemon running on the host</li>
+<li>Nginx-proxy uses this to listen for events</li>
+<li>We can set an optional <code>-e DEFAULTHOST=&lt;domain&gt;</code></li>
+<li>If a request arrives without a specified host, it will be redirected here.</li>
+</ul>
+<pre><code class="language-bash">docker run -d -p 80:80 -e DEFAULT_HOST=proxy.example -v /var/run/docker.sock:/tmp/docker.sock:ro --name nginx jwilder/nginx-proxy
+
+# Because we've added DEFAULT_HOST,
+# any requests that arrive will be directed to the container
+# that has been assigned with the host &quot;proxy.example&quot;
+
+# We'll make a request, but we expect a 503 error since we have no containers
+curl http://docker
+</code></pre>
+<h2 id="single-host">Single Host</h2>
+<p>Now <strong>Nginx-proxy</strong> is listening to events from Docker.</p>
+<p>For Nginx-proxy to start sending requests to a container, we need to set the environment variable <strong>VIRTUAL_HOST</strong>. This defines where requests will come from. In this case, we'll match the virtual host to the default host, <strong>proxy.example</strong></p>
+<pre><code class="language-bash">docker run -d -p 80 -e VIRTUAL_HOST=proxy.example katacoda/docker-http-server
+
+# Now our request should be processed
+curl http://docker
+</code></pre>
+<h2 id="cluster">Cluster</h2>
+<p>If we were to launch a secon container with the same VIRTUAL_HOST, then nginx-proxy will configure the system in a <strong>round-robin load balancing</strong> scenario:</p>
+<ul>
+<li>The <strong>first request</strong> is sent to the <strong>first container</strong></li>
+<li>The <strong>second request</strong> is sent to the <strong>second container</strong></li>
+</ul>
+<pre><code class="language-bash"># Launch a second container using the same command as before
+docker run -d -p 80 -e VIRTUAL_HOST=proxy.example katacoda/docker-http-server
+
+# If we repeatedly send requests, we'll see them being alternativly handled by the two containers
+curl http://docker
+</code></pre>
+<h2 id="generated-nginx-configuration">Generated NGINX Configuration</h2>
+<p>While nginx-proxy will automatically create and configure NGINX for us, we can see the final configuration that it made:</p>
+<pre><code class="language-bash">docker exec nginx cat /etc/nginx/conf.d/default.conf
+</code></pre>
+<hr />
+<h2 id="docker-swarm">Docker Swarm</h2>
+<p>We'll learn how to initialize a cluster in <strong>Docker Swarm Mode</strong> and deploy networked containers using the built-in <strong>Docker Orchestration</strong>.</p>
+<p><strong>Swarm Mode</strong> enables the ability to deploy containers across <strong>multiple Docker hosts</strong>.
+It uses overlay networks for service discovery and a built-in load balancer for scaling the services.</p>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul>
+<li><strong>Node</strong>: A Node is an instance of the Docker Engine connected to the swarm. Nodes are either <strong>managers</strong> or <strong>workers</strong>.</li>
+<li><strong>Managers</strong> schedule which containers to run and where</li>
+<li><strong>Workers</strong> execute the tasks</li>
+<li><strong>Services</strong>: A Service is a high-level concept relating to a collection of tasks to be executed by workers.</li>
+<li>An example of a service is an HTTP server running as a Docker Container on three nodes.</li>
+<li><strong>Load Balancing</strong>: Docker includes a built-in load balancer to process requests across all containers.</li>
+</ul>
+<hr />
+<h2 id="initialize-swarm-mode">Initialize Swarm Mode</h2>
+<p>By default, Docker works as an isolated single-node.
+<strong>Swarm Mode</strong> turns it into a <strong>multi-host</strong> <strong>cluster-aware</strong> engine.</p>
+<p>The first node to initialize the Swarm Mode becomes the <strong>Manager</strong>.
+As new nodes join, they can adjust their roles between managers or workers.
+<em>You should run 3 to 5 managers in production to ensure high availablility</em></p>
+<pre><code class="language-bash">
+# You can find an overview of the commands with --help
+$docker swarm --help
+
+# Create a Swarm Mode Cluster
+$docker swarm init
+Swarm initialized: current node (dy72cua9m3ruay1ebxelb1un2) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-53u343zuq4nvb66b2qj62deyddj4q03ozj5npqu8fp36ag8tji-adckignv2e49vcx4vkjr8jjjr 172.17.0.41:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+</code></pre>
+<h2 id="join-the-cluster">Join the Cluster</h2>
+<p>If some nodes crash, the containers which were running on those hosts will be automatically rescheduled onto other available nodes, ensuring high-availability.</p>
+<p>Docker uses an additional port <strong>2377</strong> for managing the Swarm. This port should be blocked from public access, and only accessed by trusted users and nodes.</p>
+<p>Let's get the token that's required to add a worker to the cluster.
+In this demo, we'll get it with <code>swarm join-token</code>, but in production, <em>this token should be stored securely and only given to trusted individuals</em>.</p>
+<pre><code class="language-bash"># Ask the manager what the token is
+token=$(ssh -o StrictHostKeyChecking=no 172.17.0.41 &quot;docker swarm join-token -q worker&quot;) &amp;&amp; echo $token
+
+# On the second host, join the cluster
+docker swarm join 172.17.0.41:2377 --token $token
+
+# Now we can view all nodes in the cluster
+docker node ls
+</code></pre>
+<h2 id="create-an-overlay-network">Create an Overlay Network</h2>
+<p>In previous versions, Docker required an external key-value store (like Consul) to ensure consistency across the network.
+Now this functionality is incorporated internally into docker.</p>
+<p>The syntax is the same as before, but we add the <code>overlay</code> keyword when creating the network.</p>
+<pre><code class="language-bash">docker network create -d overlay skynet
+</code></pre>
+<h2 id="deploy-a-service">Deploy a Service</h2>
+<p>By default, docker uses a <strong>Spread Replication Model</strong> to decide which containers should run on which hosts.
+The spread approach ensures that containers are deployed <strong>evenly across the cluster</strong>.
+If a node is removed from the cluster, the workload is <strong>rescheduled across the remaining nodes</strong>.</p>
+<p>In this example, we're deploying the image <em>katacoda/docker-http-server</em> with the name <em>http</em>.
+It will be attached to the <em>skynet</em> network that we just created.
+<code>docker service create --name http --network skynet</code></p>
+<p>For replication and availability, we'll run two instances of replicas of the container across the cluster.
+<code>--replicas 2</code></p>
+<p>Finally, we load balance the containers together on port 80.
+If we send an HTTP request to any of the nodes, the cluster will decide which node to respond on.
+<em>The node which accepted the request may be different from the node where the container responds.</em></p>
+<p>In full:</p>
+<pre><code class="language-bash"># Create the &quot;http&quot; service on the &quot;skynet&quot; network
+docker service create --name http --network skynet --replicas 2 -p 80:80 katacoda/docker-http-server
+
+# View the currently-running services
+docker service ls
+
+# If we make repeated HTTP requests, we'll see alternate hosts handling the requests
+curl host01
+</code></pre>
+<h2 id="inspect-state">Inspect State</h2>
+<p>We can use the Service concept to inspect the health and state of the cluster.</p>
+<pre><code class="language-bash"># View the list of all tasks associated with the &quot;http&quot; service
+docker service ps http
+
+# View the details of a particular service
+docker service inspect --pretty http
+
+# On each node, we can we what task we're currently running
+# &quot;self&quot; refers to the manager node Leader
+docker node ps self
+
+# We can use the ID of a node to query individual hosts
+docker node ps $(docker node ls -q | head -n1)
+</code></pre>
+<h2 id="scale-the-service">Scale the Service</h2>
+<p>A <strong>Service</strong> allows us to scale the number of instances of a task that are running across the cluster.</p>
+<pre><code class="language-bash"># Run the http service across 5 containers
+docker service scale http=5
+
+# We can see the new nodes on each host
+docker ps
+</code></pre>
+<p><a href="../#table-of-contents">up</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../Docker_Compose/" class="btn btn-neutral" title="Docker Compose"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Docker_Compose/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

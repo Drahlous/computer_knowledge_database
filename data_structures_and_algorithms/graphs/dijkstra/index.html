@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Dijkstra's Algorithm - Computer Knowledge Database</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dijkstra's Algorithm";
+    var mkdocs_page_input_path = "data_structures_and_algorithms/graphs/dijkstra/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Computer Knowledge Database</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Datastructures and Algorithms</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sorting/selection_sort/">Selection Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../recursion/">Recursion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../sorting/quicksort/">Quick Sort</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../hash_table/">Hash Tables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../breadth_first_search/">Breadth First Search</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Dijkstra's Algorithm</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dijkstras-algorithm-steps">Dijkstra's Algorithm Steps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dijkstras-algorithm-vs-breadth-first-search">Dijkstra's Algorithm vs Breadth First Search</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#graph-terminology">Graph Terminology</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-key-idea-of-dijkstras-algorithm">The Key Idea of Dijkstra's Algorithm</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../greedy_algorithms/">Greedy Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../dynamic_programming/">Dynamic Programming</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Docker_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Building_Docker_Images/">Building Docker Images</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Stateful_Data_Containers/">Statefule Data Containers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Container_Networking/">Container Networking</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Docker_Compose/">Docker Compose</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../docker/Docker_Clusters/">Docker Clusters</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Computer Knowledge Database</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Datastructures and Algorithms &raquo;</li>
+        
+      
+    
+    <li>Dijkstra's Algorithm</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dijkstras-algorithm">Dijkstra's Algorithm</h1>
+<p>Dijkstra's algorithm is run on <code>weighted</code> graphs to find the <code>shortest path</code>.
+It only works on <code>Acyclic Graphs</code> with <code>No Negative Edges</code>.</p>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>
+<p>Keep a table of all of the nodes in the graph</p>
+</li>
+<li>
+<p>In the table, keep track of the 'cheapest' cost to get to each node</p>
+</li>
+<li>
+<p>At each step use the <code>current cheapest</code> node, see if this node allows us to get to its neighbors for cheaper than any other paths seen so far</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Cost</th>
+<th>Processed?</th>
+<th>Parent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>2</td>
+<td>True</td>
+<td>Start</td>
+</tr>
+<tr>
+<td>B</td>
+<td>3</td>
+<td>False</td>
+<td>Start</td>
+</tr>
+<tr>
+<td>C</td>
+<td>NULL</td>
+<td>False</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dijkstras-algorithm-steps">Dijkstra's Algorithm Steps</h2>
+<ol>
+<li>
+<p>Pick a <code>current_node</code>, this will be the cheapest node stored in our table so far.</p>
+</li>
+<li>
+<p>We need to update the cost for this node's neighbors.</p>
+<ul>
+<li>We should compare the <code>neighbor's</code> current total cost (in the table) to the theoretical cost they would have if we used a path from <code>current_node</code> (<code>total_cost_to_current_node</code> + <code>cost_of_edge_from_current_to_neighbor</code>)</li>
+<li>If this new cost is cheaper, update the neighbor's cost and mark it's parent as <code>current_node</code></li>
+</ul>
+</li>
+<li>
+<p>Mark the <code>current_node</code> as processed, do not process it again.</p>
+</li>
+<li>
+<p>Repeat until every node in the graph is marked <code>processed</code>.</p>
+</li>
+</ol>
+<h2 id="dijkstras-algorithm-vs-breadth-first-search">Dijkstra's Algorithm vs Breadth First Search</h2>
+<ul>
+<li>
+<p><code>Breadth First Search</code> finds the shortest path in terms of the <code>number of edges</code> in the path. BFS ignores the weights.</p>
+</li>
+<li>
+<p><code>Dijkstra's Algorithm</code> finds the shortest path in terms of the <code>total combined weight</code> of the edges in the path.</p>
+</li>
+</ul>
+<h2 id="graph-terminology">Graph Terminology</h2>
+<ul>
+<li>A <code>Weighted graph</code> has a number assigned to each edge. This number represents the <code>cost</code> of using that edge.</li>
+<li>
+<p>An <code>Unweighted graph</code> has no numbers on the edges. Each edge has the same cost.</p>
+</li>
+<li>
+<p>A <code>Cycle</code> is a path in a graph that allows you to <code>start at a node</code>, <code>travel around</code>, and <code>end up where you started</code>.</p>
+</li>
+</ul>
+<h2 id="the-key-idea-of-dijkstras-algorithm">The Key Idea of Dijkstra's Algorithm</h2>
+<p>At each step, when you find the <code>cheapest</code> node, the <code>cost</code> currently stored for that node is the lowest that it can possibly ever be.
+It is <code>mathematically impossible</code> that you'll find a shorter path to this node later on.</p>
+<p>This is why <code>Dijkstra's Algorithm</code> breaks down when you have <code>Negative-Weight edges within a cycle</code>.
+In these cases, use something like <code>Bellman-Ford</code> instead.</p>
+<p>You might be tempted to think that you can get rid of the negative-weight problem by adding a positive offset to all edges.
+The problem is that, although an offset affects all <code>edges</code> equally, it <em>does not</em> affect all <code>paths</code> equally.
+Paths of different segment lengths will be changed by differing amounts.</p>
+<pre><code class="language-text">Length : 2
+     2
+A   --&gt;     B
+
+Length : *3*
+     3
+A   --&gt;     B 
+
+
+Length : 2
+     1           1
+A   --&gt;     B   --&gt;     C
+
+Length : *4*
+     2           2
+A   --&gt;     B   --&gt;     C
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../greedy_algorithms/" class="btn btn-neutral float-right" title="Greedy Algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../breadth_first_search/" class="btn btn-neutral" title="Breadth First Search"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../breadth_first_search/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../greedy_algorithms/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
