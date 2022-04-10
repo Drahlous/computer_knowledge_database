@@ -1,5 +1,7 @@
 # Computer Knowledge Database
 
+## [Visit the Docs!](https://drahlous.github.io/computer_knowledge_database/)
+
 ## Getting Started
 
 For most of the examples, I've provided a Makefile to make it easy to jump in.
